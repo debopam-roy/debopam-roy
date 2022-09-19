@@ -12,9 +12,9 @@
 
 ## Projects
 
-- [Sudoku Solver](https://github.com/debopam-roy/Sudoku-Solver)
 - [Resumesed](https://github.com/debopam-roy/Resume-Builder)
 - [Sorting Visualizer](https://github.com/debopam-roy/Sorting-Visualizer)
+- [Sudoku Solver](https://github.com/debopam-roy/Sudoku-Solver)
 - [Huffman Coding](https://github.com/debopam-roy/Huffman-Coding)
 
 <!-- https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=iamkkmcmd&theme=vue  -->
