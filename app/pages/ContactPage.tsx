@@ -34,8 +34,8 @@ const contactReasons = [
 const socialLinks = [
   {
     icon: <Mail size={20} />,
-    href: "mailto:debopamroy.portfolio@gmail.com",
-    label: "debopamroy.portfolio@gmail.com",
+    href: "mailto:debo.roy79@gmail.com",
+    label: "debo.roy79@gmail.com",
     name: "Email",
   },
   {
@@ -71,7 +71,7 @@ export default function ContactPage() {
       ? `Portfolio Contact — ${contactReasons.find((r) => r.value === selectedReason)?.label}`
       : "Portfolio Contact";
     const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
-    const mailto = `mailto:debopamroy.portfolio@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailto = `mailto:debo.roy79@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     window.open(mailto, "_blank");
     setStatus("sent");

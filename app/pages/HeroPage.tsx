@@ -42,7 +42,7 @@ function useTypewriter(words: string[], typingSpeed = 150, deletingSpeed = 100, 
 const socialLinks = [
   {
     icon: <Mail size={20} />,
-    href: "mailto:debopamroy.portfolio@gmail.com",
+    href: "mailto:debo.roy79@gmail.com",
     label: "Email",
   },
   {
