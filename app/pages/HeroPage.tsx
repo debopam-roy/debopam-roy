@@ -63,12 +63,25 @@ export default function HeroPage() {
   return (
     <section
       id="hero"
-      className="flex min-h-screen w-full items-center justify-between gap-4 px-8 pt-24"
+      className="flex min-h-screen w-full flex-col items-center justify-center gap-4 px-5 pt-20 sm:gap-6 sm:px-8 sm:pt-24 md:gap-8 md:px-12 lg:flex-row lg:justify-between lg:gap-4 lg:px-8"
     >
-      {/* Left Content */}
-      <div className="flex w-3/5 flex-col gap-6">
-        <h1 className="text-5xl leading-tight lg:text-6xl lg:leading-tight">
-          <span className="">Hello,</span>{" "}
+      {/* Illustration — shown on top for mobile/tablet, right side on desktop */}
+      <div className="flex shrink-0 items-center justify-center lg:order-2 lg:w-2/5">
+        <Image
+          src="/images/hero_image.svg"
+          alt="Developer illustration"
+          width={750}
+          height={750}
+          priority
+          draggable={false}
+          className="pointer-events-none select-none"
+        />
+      </div>
+
+      {/* Text Content */}
+      <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:order-1 lg:w-3/5">
+        <h1 className="text-2xl leading-tight sm:text-3xl md:text-[2.75rem] md:leading-tight lg:text-5xl xl:text-6xl xl:leading-tight">
+          <span>Hello,</span>{" "}
           <span className="font-bold">I am Debopam Roy</span>
           <br />
           <span className="font-black">Software </span>
@@ -81,14 +94,14 @@ export default function HeroPage() {
           <span className="font-black">India.</span>
         </h1>
 
-        <p className="max-w-xl text-lg leading-relaxed text-gray-600">
+        <p className="max-w-xl text-sm leading-relaxed text-gray-600 sm:text-base md:text-lg">
           I build scalable, production-grade applications with TypeScript,
           Next.js, NestJS, Python, and Golang. From enterprise platforms serving
           thousands of users to real-time collaborative tools, I focus on clean
           architecture, performance, and delivering real impact.
         </p>
 
-        <div className="flex items-center gap-4 pt-4">
+        <div className="flex items-center gap-3 pt-2 sm:gap-4 sm:pt-4">
           {socialLinks.map(({ icon, href, label }) => (
             <a
               key={label}
@@ -96,25 +109,12 @@ export default function HeroPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="flex h-12 w-12 items-center justify-center border-2 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white hover:shadow-none transition-all rounded-sm"
+              className="flex h-10 w-10 items-center justify-center border-2 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white hover:shadow-none transition-all rounded-sm sm:h-12 sm:w-12"
             >
               {icon}
             </a>
           ))}
         </div>
-      </div>
-
-      {/* Right Illustration */}
-      <div className="hidden w-2/5 lg:block">
-        <Image
-          src="/images/hero_image.svg"
-          alt="Developer illustration"
-          width={650}
-          height={650}
-          priority
-          draggable={false}
-          className="pointer-events-none select-none"
-        />
       </div>
     </section>
   );

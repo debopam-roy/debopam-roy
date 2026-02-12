@@ -51,52 +51,61 @@ export default function ExperienceDetailModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 px-3 backdrop-blur-sm sm:items-center sm:px-4"
       onClick={onClose}
     >
       <div
-        className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-sm border-2 border-black bg-white p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+        className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-t-sm border-2 border-black bg-white p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:rounded-sm sm:p-6 sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] md:p-8"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-sm border-2 border-black transition-colors hover:bg-black hover:text-white"
+          className="absolute top-3 right-3 flex h-7 w-7 items-center justify-center rounded-sm border-2 border-black transition-colors hover:bg-black hover:text-white sm:top-4 sm:right-4 sm:h-8 sm:w-8"
           aria-label="Close"
         >
-          <X size={16} />
+          <X size={14} className="sm:hidden" />
+          <X size={16} className="hidden sm:block" />
         </button>
 
         {/* Header */}
-        <div className="pr-10">
-          <h3 className="text-2xl font-bold">{experience.role}</h3>
-          <p className="mt-1 text-lg text-gray-600">
+        <div className="pr-8 sm:pr-10">
+          <h3 className="text-lg font-bold sm:text-xl md:text-2xl">
+            {experience.role}
+          </h3>
+          <p className="mt-1 text-sm text-gray-600 sm:text-base md:text-lg">
             {experience.company}{" "}
-            <span className="text-sm text-gray-400">· {experience.type}</span>
+            <span className="text-xs text-gray-400 sm:text-sm">
+              · {experience.type}
+            </span>
           </p>
-          <p className="mt-1 text-sm text-gray-400">
+          <p className="mt-1 text-xs text-gray-400 sm:text-sm">
             {experience.period} · {experience.location}
           </p>
         </div>
 
         {/* Divider */}
-        <div className="my-6 h-0.5 w-full bg-gray-100" />
+        <div className="my-4 h-0.5 w-full bg-gray-100 sm:my-6" />
 
         {/* Detailed Experience */}
         {experience.bullets.length > 0 && (
           <div>
-            <h4 className="mb-3 text-sm font-bold tracking-wide uppercase text-gray-500">
+            <h4 className="mb-2 text-xs font-bold tracking-wide uppercase text-gray-500 sm:mb-3 sm:text-sm">
               Responsibilities & Achievements
             </h4>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-2 sm:gap-3">
               {experience.bullets.map((bullet, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-2.5 text-sm leading-relaxed text-gray-600"
+                  className="flex items-start gap-2 text-xs leading-relaxed text-gray-600 sm:gap-2.5 sm:text-sm"
                 >
                   <ArrowRight
+                    size={12}
+                    className="mt-0.5 shrink-0 text-black sm:hidden"
+                  />
+                  <ArrowRight
                     size={14}
-                    className="mt-1 shrink-0 text-black"
+                    className="mt-1 hidden shrink-0 text-black sm:block"
                   />
                   <span>{bullet}</span>
                 </li>
@@ -107,15 +116,15 @@ export default function ExperienceDetailModal({
 
         {/* Skills */}
         {experience.skills.length > 0 && (
-          <div className="mt-6">
-            <h4 className="mb-3 text-sm font-bold tracking-wide uppercase text-gray-500">
+          <div className="mt-4 sm:mt-6">
+            <h4 className="mb-2 text-xs font-bold tracking-wide uppercase text-gray-500 sm:mb-3 sm:text-sm">
               Tech Stack
             </h4>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {experience.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-sm border border-black px-2.5 py-1 text-xs font-medium"
+                  className="rounded-sm border border-black px-2 py-0.5 text-[10px] font-medium sm:px-2.5 sm:py-1 sm:text-xs"
                 >
                   {skill}
                 </span>
@@ -126,8 +135,8 @@ export default function ExperienceDetailModal({
 
         {/* Documents */}
         {experience.documents && experience.documents.length > 0 && (
-          <div className="mt-6">
-            <h4 className="mb-3 text-sm font-bold tracking-wide uppercase text-gray-500">
+          <div className="mt-4 sm:mt-6">
+            <h4 className="mb-2 text-xs font-bold tracking-wide uppercase text-gray-500 sm:mb-3 sm:text-sm">
               Documents
             </h4>
             <div className="flex flex-col gap-2">
@@ -137,9 +146,10 @@ export default function ExperienceDetailModal({
                   href={doc.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 rounded-sm border-2 border-black px-4 py-3 text-sm font-medium shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all hover:bg-black hover:text-white hover:shadow-none"
+                  className="flex items-center gap-2.5 rounded-sm border-2 border-black px-3 py-2.5 text-xs font-medium shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all hover:bg-black hover:text-white hover:shadow-none sm:gap-3 sm:px-4 sm:py-3 sm:text-sm"
                 >
-                  <FileText size={16} />
+                  <FileText size={14} className="sm:hidden" />
+                  <FileText size={16} className="hidden sm:block" />
                   {doc.label}
                 </a>
               ))}

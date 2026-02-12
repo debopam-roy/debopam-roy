@@ -163,21 +163,21 @@ export default function ProjectsPage() {
   return (
     <section
       id="projects"
-      className="flex min-h-screen w-full flex-col gap-12 px-8 py-24"
+      className="flex min-h-screen w-full flex-col gap-6 px-5 py-20 sm:gap-8 sm:px-8 sm:py-24 md:gap-10 lg:gap-12"
     >
-      <h2 className="text-5xl lg:text-6xl">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
         My <span className="font-bold">Projects</span>
       </h2>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
         {projects.map((project, i) => (
           <div
             key={i}
-            className="group flex flex-col rounded-sm border-2 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+            className="group flex flex-col rounded-sm border-2 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-shadow hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:p-5 sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] md:p-6"
           >
             {/* Header */}
-            <div className="flex items-start justify-between gap-4">
-              <h3 className="text-xl font-bold">{project.title}</h3>
+            <div className="flex items-start justify-between gap-3 sm:gap-4">
+              <h3 className="text-base font-bold sm:text-lg md:text-xl">{project.title}</h3>
               {project.link && (
                 <a
                   href={project.link}
@@ -186,40 +186,41 @@ export default function ProjectsPage() {
                   aria-label={`Visit ${project.title}`}
                   className="shrink-0 text-gray-400 transition-colors hover:text-black"
                 >
-                  <ExternalLink size={18} />
+                  <ExternalLink size={16} className="sm:hidden" />
+                  <ExternalLink size={18} className="hidden sm:block" />
                 </a>
               )}
             </div>
 
-            <p className="text-sm text-gray-500">{project.client}</p>
-            <p className="mt-0.5 text-sm text-gray-400">
+            <p className="text-xs text-gray-500 sm:text-sm">{project.client}</p>
+            <p className="mt-0.5 text-xs text-gray-400 sm:text-sm">
               {project.period} ({project.type})
             </p>
 
             {/* Description */}
-            <p className="mt-4 text-sm leading-relaxed text-gray-600">
+            <p className="mt-3 text-xs leading-relaxed text-gray-600 sm:mt-4 sm:text-sm">
               {project.description}
             </p>
 
             {/* Highlights */}
-            <ul className="mt-4 flex flex-col gap-1.5">
+            <ul className="mt-3 flex flex-col gap-1 sm:mt-4 sm:gap-1.5">
               {project.highlights.map((highlight, j) => (
                 <li
                   key={j}
-                  className="flex items-start gap-2 text-sm leading-relaxed text-gray-600"
+                  className="flex items-start gap-2 text-xs leading-relaxed text-gray-600 sm:text-sm"
                 >
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black" />
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-black sm:h-1.5 sm:w-1.5" />
                   <span>{highlight}</span>
                 </li>
               ))}
             </ul>
 
             {/* Skills */}
-            <div className="mt-auto flex flex-wrap gap-2 pt-4">
+            <div className="mt-auto flex flex-wrap gap-1.5 pt-3 sm:gap-2 sm:pt-4">
               {project.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-sm border border-black px-2 py-0.5 text-xs font-medium"
+                  className="rounded-sm border border-black px-1.5 py-0.5 text-[10px] font-medium sm:px-2 sm:text-xs"
                 >
                   {skill}
                 </span>

@@ -5,7 +5,19 @@ html {
 }
 
 section[id] {
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 4rem;
+}
+
+@media (min-width: 640px) {
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
 }
 
 :root {
