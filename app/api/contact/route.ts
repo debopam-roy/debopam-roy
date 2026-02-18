@@ -2,21 +2,20 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import nodemailer from "nodemailer";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SECRET_KEY!
-);
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.NEXT_GMAIL_USER!,
-    pass: process.env.NEXT_GMAIL_APP_PASSWORD!,
-  },
-});
-
 export async function POST(req: NextRequest) {
   try {
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SECRET_KEY!
+    );
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.NEXT_GMAIL_USER!,
+        pass: process.env.NEXT_GMAIL_APP_PASSWORD!,
+      },
+    });
     const { name, email, reason, message } = await req.json();
 
     if (!name || !email || !message) {
