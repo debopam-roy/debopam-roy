@@ -18,7 +18,7 @@ const experiences: ExperienceDetail[] = [
       "Implemented in-memory caching layer in GO-ETL with four-bucket hash map partitioning for entity and category mappings. Reduced DB queries from O(N) to O(1) per entity, concurrent-safe read access.",
       "Built Vendor Dashboard API endpoints with summary data aggregation and CSV export functionality.",
     ],
-    skills: ["Python", "Flask", "Go"],
+    skills: ["Python", "Flask", "Go", "PostgreSQL", "Redis", "Docker"],
     documents: [
       // { label: "Experience Letter", href: "/documents/precanto-experience.pdf" },
     ],
@@ -39,110 +39,115 @@ const experiences: ExperienceDetail[] = [
       "Designed responsive UI with shadcn/ui component library, dark mode using next-themes, drag-and-drop Kanban boards with @dnd-kit, bulk CSV/Excel upload validation, and analytics dashboards with recharts for TPO workflows.",
     ],
     skills: [
+      "Python",
       "TypeScript",
       "React.js",
-      "Next.js",
+      "NestJS",
       "Supabase",
       "PostgreSQL",
       "GCP",
     ],
     documents: [
-      // { label: "Experience Letter", href: "/documents/metasage-experience.pdf" },
-      // { label: "Relieving Letter", href: "/documents/metasage-relieving.pdf" },
+      { label: "Experience Letter", href: "/documents/metasage_release_letter.pdf" },
     ],
   },
   {
     role: "Executive Software Developer",
     company: "FeedSense AI Private Limited",
-    type: "Full-time",
+    type: "Full-time · Onsite",
     period: "Apr 2024 – Apr 2025",
     location: "Kolkata, West Bengal, India",
     bullets: [
-      "Crafted and executed multiple commercial models employing Python. Proficiency extends beyond mere model creation, with significant contributions to the backend API, skillfully composed using TypeScript.",
+      "Architected master-slave database replication, significantly reducing read latency and ensuring high availability with consistent data synchronization across multiple instances.",
+      "Monitored and maintained bare metal server infrastructure, implementing data security hardening and vulnerability remediation to strengthen system resilience.",
+      "Streamlined production deployments by building a CI/CD pipeline with automated security vulnerability scanning and multi-stage quality checks.",
+      "Designed and implemented automated failover mechanisms to ensure zero-downtime database switchover during primary node failures.",
+      "Built monitoring dashboards and alerting systems to track server health metrics, database performance, and application uptime in real time.",
     ],
-    skills: ["TypeScript", "PostgreSQL", "Python"],
+    skills: ["TypeScript", "PostgreSQL", "Python", "CI/CD", "GitHub Actions", "Linux", "Docker"],
     documents: [
-      // { label: "Promotion Letter", href: "/documents/feedsense-promotion.pdf" },
+      { label: "Experience Letter", href: "/documents/feedsense_release_letter.jpg" },
     ],
   },
   {
     role: "Executive Software Developer",
-    company: "FeedSense AI Private Limited",
-    type: "Full-time",
+    company: "Vista Intelligence Private Limited",
+    type: "Full-time · Onsite",
     period: "Jul 2023 – Mar 2024",
     location: "Kolkata, West Bengal, India",
     bullets: [
-      "Crafted and executed multiple commercial models employing Python. Made significant contributions to the backend API, skillfully composed using TypeScript.",
+      "Built automated trading algorithms for stocks, commodities, and cryptocurrencies that analyzed market data in real time and executed trades based on predefined strategies.",
+      "Developed and maintained the backend API in TypeScript, enabling seamless integration with trading engines and efficient high-throughput data handling.",
+      "Optimized algorithm performance through rigorous backtesting, live debugging, and iterative tuning—improving profitability while reducing risk exposure in volatile markets.",
+      "Collaborated with cross-functional teams including quants and analysts to refine trading strategies and ensure compliance with industry regulations.",
+      "Implemented real-time monitoring and alerting for trade execution, tracking slippage, fill rates, and P&L metrics across all asset classes.",
     ],
-    skills: ["TypeScript", "PostgreSQL"],
+    skills: ["TypeScript", "PostgreSQL", "Node.js", "REST APIs"],
     documents: [
-      // { label: "Experience Letter", href: "/documents/feedsense-experience.pdf" },
+      { label: "Experience Letter", href: "/documents/vista_intelligence_release_letter.jpg" },
     ],
   },
   {
     role: "Software Developer",
-    company: "FeedSense AI Private Limited",
-    type: "Internship",
+    company: "Vista Intelligence Private Limited",
+    type: "Internship · Onsite",
     period: "Jan 2023 – Jun 2023",
     location: "Kolkata, West Bengal, India",
     bullets: [
-      "Crafted and executed three commercial models employing Python. Made significant contributions to the backend API using TypeScript.",
+      "Built real-time data ingestion pipelines to stream market data from external providers into in-house servers.",
+      "Implemented data cleaning, validation, and transformation workflows to ensure high-quality datasets for downstream trading algorithms.",
+      "Developed automated data quality checks and anomaly detection scripts to flag inconsistencies in incoming market feeds.",
+      "Created internal tooling for monitoring pipeline throughput, latency, and error rates across multiple data streams.",
     ],
-    skills: ["PostgreSQL", "Python", "TypeScript"],
-    documents: [
-      // { label: "Internship Certificate", href: "/documents/feedsense-internship.pdf" },
-    ],
-  },
-  {
-    role: "Subject Matter Expert",
-    company: "Chegg Inc.",
-    type: "Part-time",
-    period: "Jun 2022 – Aug 2024",
-    location: "Remote",
-    bullets: [],
-    skills: [],
+    skills: ["PostgreSQL", "Python", "TypeScript", "ETL Pipelines"],
     documents: [],
   },
   {
     role: "Android Developer",
     company: "Twain Labs",
-    type: "Internship",
+    type: "Internship · Remote",
     period: "Jul 2020 – Oct 2020",
-    location: "Remote",
+    location: " Okhla Industrial Area, New Delhi, India",
     bullets: [
-      "Created an Android application successfully published on Google Play, comprising a private browsing segment and an integrated hub amalgamating various social media platforms into a single, user-friendly interface.",
+      "Built and published an Android application on Google Play featuring a private browsing module and a unified social media hub aggregating multiple platforms into a single interface.",
+      "Worked on multiple Android projects simultaneously, handling end-to-end development from UI design to Play Store deployment.",
+      "Integrated Firebase for user authentication, real-time data sync, and push notifications across the application.",
     ],
-    skills: ["Java", "Firebase"],
+    skills: ["Java", "Firebase", "Android SDK", "XML"],
     documents: [
-      // { label: "Internship Certificate", href: "/documents/twainlabs-certificate.pdf" },
+      { label: "Experience Letter", href: "/documents/twain_lab_llp_release_letter.pdf" },
     ],
   },
   {
     role: "Android Developer",
     company: "Inventive Cafe India Private Limited",
-    type: "Internship",
+    type: "Internship · Remote",
     period: "Jun 2020 – Sep 2020",
-    location: "Remote",
+    location: "Dhakia Kalan, Uttarakhand, India",
     bullets: [
-      "Developed a PDF creation application that generates PDFs by clicking images, created using Java for the Android platform with the assistance of OpenCV.",
+      "Developed a PDF creation application for Android that captures images via the device camera and converts them into formatted PDF documents.",
+      "Integrated OpenCV for image processing, including auto-cropping, perspective correction, and enhancement before PDF generation.",
+      "Implemented local storage management with MySQL to organize and retrieve generated PDFs efficiently.",
     ],
-    skills: ["Java", "MySQL"],
+    skills: ["Java", "MySQL", "OpenCV", "Android SDK"],
     documents: [
-      // { label: "Internship Certificate", href: "/documents/inventivecafe-certificate.pdf" },
+      { label: "Experience Letter", href: "/documents/inventive_cafe_release_letter.jpg" },
     ],
   },
   {
     role: "Android Developer",
     company: "Mirazh Media & Entertainment Pvt. Ltd.",
-    type: "Internship",
+    type: "Internship · Remote",
     period: "May 2020 – Jul 2020",
-    location: "Remote",
+    location: "Fatehabad, Haryana, India",
     bullets: [
-      "Constructed an Android application for their homepage, in addition to developing a VR application for their educational technology platform.",
+      "Built the \"Overlook\" Android application serving as the company's mobile homepage with dynamic content and navigation.",
+      "Developed a VR application for the \"vrmirazh.com\" ed-tech platform, enabling immersive learning experiences on Android devices.",
+      "Collaborated with the CTO and design team to translate wireframes into responsive Android layouts and interactive UI components.",
     ],
-    skills: ["Virtual Reality (VR)", "Java"],
+    skills: ["Virtual Reality (VR)", "Java", "Android SDK"],
     documents: [
-      // { label: "Internship Certificate", href: "/documents/mirazh-certificate.pdf" },
+      { label: "Experience Letter", href: "/documents/mirazh_media_release_letter.pdf" },
     ],
   },
 ];
@@ -199,10 +204,10 @@ export default function ExperiencePage() {
                     {exp.location}
                   </p>
 
-                  {/* Bullets */}
+                  {/* Bullets (show at most 3) */}
                   {exp.bullets.length > 0 && (
                     <ul className="mt-3 flex flex-col gap-1.5 sm:mt-4 sm:gap-2">
-                      {exp.bullets.map((bullet, j) => (
+                      {exp.bullets.slice(0, 3).map((bullet, j) => (
                         <li
                           key={j}
                           className="flex items-start gap-2 text-xs leading-relaxed text-gray-600 sm:text-sm"
@@ -229,14 +234,16 @@ export default function ExperiencePage() {
                   )}
 
                   {/* View Details Button */}
-                  <button
-                    onClick={() => setSelectedExperience(exp)}
-                    className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold transition-all hover:gap-3 sm:mt-5 sm:text-sm"
-                  >
-                    View Details
-                    <ArrowRight size={12} className="sm:hidden" />
-                    <ArrowRight size={14} className="hidden sm:block" />
-                  </button>
+                  {(exp.bullets.length > 3 || (exp.documents && exp.documents.length > 0)) && (
+                    <button
+                      onClick={() => setSelectedExperience(exp)}
+                      className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold transition-all hover:gap-3 sm:mt-5 sm:text-sm"
+                    >
+                      View Details
+                      <ArrowRight size={12} className="sm:hidden" />
+                      <ArrowRight size={14} className="hidden sm:block" />
+                    </button>
+                  )}
                 </div>
               </div>
             ))}

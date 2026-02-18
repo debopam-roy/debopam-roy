@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { GithubIcon, Linkedin, Mail } from "lucide-react";
+import { GithubIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const roles = ["Architect", "Consultant", "Developer"];
@@ -41,14 +41,16 @@ function useTypewriter(words: string[], typingSpeed = 150, deletingSpeed = 100, 
 
 const socialLinks = [
   {
-    icon: <Mail size={20} />,
-    href: "mailto:debo.roy79@gmail.com",
-    label: "Email",
+    icon: <Image src="/images/leetcode_logo.svg" alt="LeetCode" width={20} height={20} className="group-hover:hidden" />,
+    hoverIcon: <Image src="/images/leetcode_logo_selected.svg" alt="LeetCode" width={20} height={20} className="hidden group-hover:block" />,
+    href: "https://leetcode.com/debo_roy10",
+    label: "LeetCode",
   },
   {
-    icon: <Linkedin size={20} />,
-    href: "https://www.linkedin.com/in/debopamroy8",
-    label: "LinkedIn",
+    icon: <Image src="/images/codeforces_logo.svg" alt="Codeforces" width={20} height={20} className="group-hover:hidden" />,
+    hoverIcon: <Image src="/images/codeforces_logo_selected.svg" alt="Codeforces" width={20} height={20} className="hidden group-hover:block" />,
+    href: "https://codeforces.com/profile/debo_roy",
+    label: "Codeforces",
   },
   {
     icon: <GithubIcon size={20} />,
@@ -102,16 +104,17 @@ export default function HeroPage() {
         </p>
 
         <div className="flex items-center gap-3 pt-2 sm:gap-4 sm:pt-4">
-          {socialLinks.map(({ icon, href, label }) => (
+          {socialLinks.map(({ icon, hoverIcon, href, label }) => (
             <a
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="flex h-10 w-10 items-center justify-center border-2 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white hover:shadow-none transition-all rounded-sm sm:h-12 sm:w-12"
+              className="group flex h-10 w-10 items-center justify-center border-2 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white hover:shadow-none transition-all rounded-sm sm:h-12 sm:w-12"
             >
               {icon}
+              {hoverIcon}
             </a>
           ))}
         </div>

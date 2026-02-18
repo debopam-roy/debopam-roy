@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Dancing_Script } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +52,40 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${dancingScript.variable} ${satoshi.variable} antialiased`}
       >
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              border: "2px solid #000",
+              borderRadius: "2px",
+              padding: "12px 16px",
+              fontFamily: "var(--font-satoshi)",
+              fontSize: "14px",
+              fontWeight: 500,
+              boxShadow: "4px 4px 0px 0px rgba(0,0,0,1)",
+            },
+            success: {
+              style: {
+                background: "#000",
+                color: "#fff",
+              },
+              iconTheme: {
+                primary: "#fff",
+                secondary: "#000",
+              },
+            },
+            error: {
+              style: {
+                background: "#fff",
+                color: "#000",
+              },
+              iconTheme: {
+                primary: "#000",
+                secondary: "#fff",
+              },
+            },
+          }}
+        />
         {children}
       </body>
     </html>

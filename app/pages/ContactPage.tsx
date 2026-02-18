@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import toast from "react-hot-toast";
 import {
   Mail,
   Linkedin,
   Phone,
-  Coffee,
   Send,
   MessageSquare,
   Briefcase,
@@ -59,28 +60,42 @@ export default function ContactPage() {
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState<
-    "idle" | "sending" | "sent" | "error"
-  >("idle");
+  const [status, setStatus] = useState<"idle" | "sending">("idle");
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
 
-    // Compose mailto link as a fallback (no backend needed)
-    const subject = selectedReason
-      ? `Portfolio Contact — ${contactReasons.find((r) => r.value === selectedReason)?.label}`
-      : "Portfolio Contact";
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
-    const mailto = `mailto:debo.roy79@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          reason: selectedReason || null,
+          message: formData.message,
+        }),
+      });
 
-    window.open(mailto, "_blank");
-    setStatus("sent");
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(
+          data?.error || "Something went wrong. Please try again."
+        );
+      }
 
-    setTimeout(() => {
       setStatus("idle");
       setFormData({ name: "", email: "", message: "" });
       setSelectedReason(null);
-    }, 3000);
+      toast.success("Message sent successfully! Thank you for reaching out.");
+    } catch (err) {
+      setStatus("idle");
+      toast.error(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again."
+      );
+    }
   };
 
   return (
@@ -195,9 +210,7 @@ export default function ContactPage() {
               className="flex w-full items-center justify-center gap-2 rounded-sm border-2 border-black bg-black px-6 py-2.5 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] transition-all hover:shadow-none disabled:cursor-not-allowed disabled:opacity-50 sm:w-fit sm:px-8 sm:py-3"
             >
               {status === "sending" ? (
-                "Opening mail client..."
-              ) : status === "sent" ? (
-                "Sent! Thank you"
+                "Sending..."
               ) : (
                 <>
                   Send Message <Send size={16} />
@@ -240,8 +253,8 @@ export default function ContactPage() {
           {/* Coffee Card */}
           <div className="rounded-sm border-2 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:p-6 sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <div className="flex items-center gap-2 sm:gap-3">
-              <Coffee size={20} className="sm:hidden" />
-              <Coffee size={24} className="hidden sm:block" />
+              <Image src="/images/buy_me_a_coffee.svg" alt="Buy Me a Coffee" width={20} height={20} className="sm:hidden" />
+              <Image src="/images/buy_me_a_coffee.svg" alt="Buy Me a Coffee" width={24} height={24} className="hidden sm:block" />
               <h3 className="text-base font-bold sm:text-lg">Sponsor a Coffee</h3>
             </div>
             <p className="mt-2 text-xs leading-relaxed text-gray-600 sm:mt-3 sm:text-sm">
@@ -253,9 +266,10 @@ export default function ContactPage() {
               href="https://buymeacoffee.com/debopam"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-2 rounded-sm border-2 border-black bg-white px-4 py-2 text-xs font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all hover:bg-black hover:text-white hover:shadow-none sm:mt-4 sm:px-5 sm:py-2.5 sm:text-sm sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+              className="group mt-3 inline-flex items-center gap-2 rounded-sm border-2 border-black bg-white px-4 py-2 text-xs font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all hover:bg-black hover:text-white hover:shadow-none sm:mt-4 sm:px-5 sm:py-2.5 sm:text-sm sm:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
             >
-              <Coffee size={16} />
+              <Image src="/images/buy_me_a_coffee.svg" alt="Buy Me a Coffee" width={16} height={16} className="group-hover:hidden" />
+              <Image src="/images/buy_me_a_coffee_selected.svg" alt="Buy Me a Coffee" width={16} height={16} className="hidden group-hover:block" />
               Buy Me a Coffee
             </a>
           </div>
