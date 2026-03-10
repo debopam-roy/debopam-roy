@@ -59,18 +59,6 @@ const socialLinks = [
     label: "CodeChef",
   },
   {
-    icon: <Image src="/images/atcoder_logo.svg" alt="AtCoder" width={28} height={28} className="group-hover:hidden" />,
-    hoverIcon: <Image src="/images/atcoder_logo_selected.svg" alt="AtCoder" width={28} height={28} className="hidden group-hover:block" />,
-    href: "https://atcoder.jp/users/debo_roy10",
-    label: "AtCoder",
-  },
-  {
-    icon: <Image src="/images/gfg_logo.svg" alt="GeeksforGeeks" width={28} height={28} className="group-hover:hidden" />,
-    hoverIcon: <Image src="/images/gfg_logo_selected.svg" alt="GeeksforGeeks" width={28} height={28} className="hidden group-hover:block" />,
-    href: "https://www.geeksforgeeks.org/user/debo_roy10/",
-    label: "GeeksforGeeks",
-  },
-  {
     icon: <GithubIcon size={20} />,
     href: "https://github.com/debopam-roy",
     label: "GitHub",
