@@ -11,7 +11,7 @@ const experiences: ExperienceDetail[] = [
     role: "Senior Software Engineer",
     company: "Precanto",
     type: "Full-time · Remote",
-    period: "Nov 2025 – Present",
+    period: "Nov 2025 – Mar 2026",
     location: "Bengaluru, Karnataka, India",
     bullets: [
       "Developed threaded commenting feature with user tagging, RBAC, and nested replies. Integrated email notifications with deep-linking to enable direct navigation to specific comments.",

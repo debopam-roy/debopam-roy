@@ -4,7 +4,7 @@ const projects = [
   {
     title: "Swaadly",
     client: "Freelance (Remote: Offsite)",
-    period: "Dec 2025 – Jan 2026",
+    period: "Dec 2025 – Present",
     type: "Full Time",
     description:
       "A comprehensive peanut delivery platform serving over 50,000+ monthly active users with high reliability and performance.",
@@ -30,7 +30,7 @@ const projects = [
   {
     title: "Soul Paradise Travels",
     client: "Freelance (Remote: Offsite)",
-    period: "Oct 2025 – Dec 2025",
+    period: "Oct 2025 – Present",
     type: "Full Time",
     description:
       "An end-to-end travel management platform serving both retail customers and travel agency partners with integrated booking capabilities across multiple travel services.",
